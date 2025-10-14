@@ -82,7 +82,7 @@ PyLearn respeta tu privacidad:
 - ❌ No recopilamos datos personales
 - ✅ Todo el progreso se almacena localmente
 - ✅ No se sincronizan datos con servidores externos
-- ✅ Código abierto y transparente
+
 
 📄 Lee nuestra [Política de Privacidad completa](./PRIVACY.md)
 
