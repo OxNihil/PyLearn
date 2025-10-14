@@ -1,15 +1,11 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="PyLearn - Aprende Python desde tu móvil con quizzes, flashcards y retos de código. Learn Python on the go!" />
-    <meta name="keywords" content="Python, Learn Python, Mobile App, Programming, Education, PyLearn" />
-    <meta property="og:title" content="PyLearn - Aprende Python desde tu móvil" />
-    <meta property="og:description" content="La mejor app para aprender Python de forma interactiva y divertida" />
-    <meta property="og:type" content="website" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PyLearn - Aprende Python desde tu móvil">
     <title>PyLearn — Aprende Python desde tu móvil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,40 +13,24 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #7c3aed;
-            --primary-dark: #6d28d9;
-            --secondary: #06b6d4;
-            --bg-dark: #0f172a;
-            --bg-darker: #020617;
-            --text-light: #f1f5f9;
-            --text-muted: #94a3b8;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.1);
-        }
-
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
-            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #f1f5f9;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* Navigation */
         nav {
-            position: fixed;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1.5rem 2rem;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 23, 36, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid var(--card-border);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .nav-container {
+        .nav-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -61,333 +41,220 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #7c3aed;
         }
 
-        .lang-toggle {
-            display: flex;
-            gap: 0.5rem;
-            background: var(--card-bg);
-            padding: 0.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-        }
-
-        .lang-btn {
+        .lang-toggle button {
             background: transparent;
-            border: none;
-            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #94a3b8;
             padding: 0.5rem 1rem;
+            margin-left: 0.5rem;
             border-radius: 6px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
             font-size: 0.9rem;
+            transition: all 0.3s;
         }
 
-        .lang-btn.active {
-            background: var(--primary);
+        .lang-toggle button.active {
+            background: #7c3aed;
             color: white;
+            border-color: #7c3aed;
         }
 
-        .lang-btn:hover:not(.active) {
-            color: var(--text-light);
-            background: rgba(255, 255, 255, 0.05);
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
-            top: -250px;
-            right: -250px;
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
-            bottom: -200px;
-            left: -200px;
-            animation: pulse 6s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .hero-content {
-            max-width: 900px;
-            position: relative;
-            z-index: 1;
+            padding: 5rem 2rem;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
             margin-bottom: 1.5rem;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
+            color: white;
         }
 
-        .hero .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cta-group {
+        .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
             display: inline-block;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        .btn:hover {
+            transform: translateY(-2px);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+        .btn-primary {
+            background: #7c3aed;
+            color: white;
         }
 
         .btn-secondary {
-            background: var(--card-bg);
-            color: var(--text-light);
-            border: 2px solid var(--card-border);
+            background: transparent;
+            color: #7c3aed;
+            border: 2px solid #7c3aed;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary);
-            transform: translateY(-2px);
+        /* Section */
+        section {
+            padding: 4rem 2rem;
         }
 
-        /* Features Section */
-        .section {
-            padding: 5rem 2rem;
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 4rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
+        .feature {
+            background: rgba(255, 255, 255, 0.03);
             padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .feature-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-light);
+        .feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: white;
         }
 
-        .feature-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
+        .feature p {
+            color: #94a3b8;
         }
 
-        /* Screenshots Gallery */
-        .screenshots-grid {
+        /* Screenshots Grid */
+        .screenshots {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .screenshot-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
+        .screenshot {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
         }
 
-        .screenshot-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(124, 58, 237, 0.3);
+        .screenshot:hover {
+            transform: translateY(-5px);
         }
 
-        .screenshot-card img {
+        .screenshot img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 20px;
         }
 
         .screenshot-label {
             padding: 1rem;
             text-align: center;
             font-weight: 600;
-            color: var(--text-light);
+            color: #e2e8f0;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             padding: 5rem 2rem;
             text-align: center;
             margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            top: -150px;
-            right: -100px;
         }
 
         .cta-section h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            color: white;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
         }
 
         .cta-section p {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .cta-section .btn {
-            position: relative;
-            z-index: 1;
+            background: white;
+            color: #7c3aed;
         }
 
         /* Footer */
         footer {
-            background: var(--bg-darker);
+            background: #020617;
             padding: 3rem 2rem;
             text-align: center;
-            border-top: 1px solid var(--card-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-links {
             display: flex;
             gap: 2rem;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: var(--text-muted);
+            color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: #7c3aed;
         }
 
         .footer-text {
-            color: var(--text-muted);
+            color: #64748b;
             font-size: 0.9rem;
         }
 
-        /* Language Content */
+        /* Language Toggle */
         [lang]:not(.active-lang) {
             display: none;
         }
@@ -398,17 +265,18 @@
                 padding: 1rem;
             }
 
-            .nav-container {
+            .nav-content {
                 flex-direction: column;
                 gap: 1rem;
             }
 
             .hero {
-                min-height: 80vh;
+                padding: 3rem 1rem;
             }
 
-            .cta-group {
+            .cta-buttons {
                 flex-direction: column;
+                align-items: center;
             }
 
             .btn {
@@ -421,319 +289,250 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
+        <div class="nav-content">
             <div class="logo">🐍 PyLearn</div>
             <div class="lang-toggle">
-                <button class="lang-btn active" data-lang="es">🇪🇸 Español</button>
-                <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+                <button class="lang-btn active" data-lang="es">🇪🇸 ES</button>
+                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section - Spanish -->
-    <section class="hero" lang="es">
-        <div class="hero-content">
-            <h1>Aprende Python<br/>desde tu móvil 🚀</h1>
-            <p class="subtitle">
-                La forma más divertida e interactiva de dominar Python con quizzes, flashcards y retos de código.
-                ¡Todo en tu bolsillo!
-            </p>
-            <div class="cta-group">
-                <a href="https://github.com/yourusername/PyLearn/releases" class="btn btn-primary">📥 Descargar App</a>
-                <a href="#features" class="btn btn-secondary">✨ Ver Características</a>
+    <!-- Hero Spanish -->
+    <div class="hero" lang="es">
+        <h1>Aprende Python desde tu móvil 🚀</h1>
+        <p>La forma más divertida e interactiva de dominar Python con quizzes, flashcards y retos de código.</p>
+        <div class="cta-buttons">
+            <a href="https://github.com/yourusername/PyLearn/releases" class="btn btn-primary">📥 Descargar App</a>
+            <a href="#features" class="btn btn-secondary">✨ Ver Características</a>
+        </div>
+    </div>
+
+    <!-- Hero English -->
+    <div class="hero" lang="en">
+        <h1>Learn Python on the go 🚀</h1>
+        <p>The most fun and interactive way to master Python with quizzes, flashcards and code challenges.</p>
+        <div class="cta-buttons">
+            <a href="https://github.com/yourusername/PyLearn/releases" class="btn btn-primary">📥 Download App</a>
+            <a href="#features" class="btn btn-secondary">✨ See Features</a>
+        </div>
+    </div>
+
+    <!-- Features Spanish -->
+    <section id="features" lang="es">
+        <div class="container">
+            <h2>Características</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <h3>Lecciones Interactivas</h3>
+                    <p>Aprende Python paso a paso con tutoriales diseñados para móviles.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Quizzes por Niveles</h3>
+                    <p>Pon a prueba tus conocimientos con tests adaptados a tu nivel.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📇</div>
+                    <h3>Flashcards</h3>
+                    <p>Memoriza sintaxis y conceptos clave con flashcards interactivas.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Gamificación</h3>
+                    <p>Rachas diarias, logros y desafíos para mantener la motivación.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📴</div>
+                    <h3>Modo Offline</h3>
+                    <p>Estudia en cualquier lugar sin necesidad de internet.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Logros</h3>
+                    <p>Desbloquea premios mientras progresas en tu aprendizaje.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Hero Section - English -->
-    <section class="hero" lang="en">
-        <div class="hero-content">
-            <h1>Learn Python<br/>on the go 🚀</h1>
-            <p class="subtitle">
-                The most fun and interactive way to master Python with quizzes, flashcards and code challenges.
-                All in your pocket!
-            </p>
-            <div class="cta-group">
-                <a href="https://github.com/yourusername/PyLearn/releases" class="btn btn-primary">📥 Download App</a>
-                <a href="#features" class="btn btn-secondary">✨ See Features</a>
+    <!-- Features English -->
+    <section id="features" lang="en">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <h3>Interactive Lessons</h3>
+                    <p>Learn Python step by step with mobile-friendly tutorials.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Level-Based Quizzes</h3>
+                    <p>Test your knowledge with quizzes adapted to your level.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📇</div>
+                    <h3>Flashcards</h3>
+                    <p>Memorize syntax and key concepts with interactive flashcards.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Gamification</h3>
+                    <p>Daily streaks, achievements and challenges to stay motivated.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📴</div>
+                    <h3>Offline Mode</h3>
+                    <p>Study anywhere without needing an internet connection.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Achievements</h3>
+                    <p>Unlock rewards as you progress in your learning journey.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section - Spanish -->
-    <section class="section" id="features" lang="es">
-        <h2 class="section-title">Características Destacadas</h2>
-        <p class="section-subtitle">Todo lo que necesitas para convertirte en un experto en Python</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3>Lecciones Interactivas</h3>
-                <p>Aprende Python desde cero con tutoriales paso a paso diseñados para móviles.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Quizzes por Niveles</h3>
-                <p>Pon a prueba tus conocimientos con quizzes adaptados a tu nivel de experiencia.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🎮</div>
-                <h3>Gamificación</h3>
-                <p>Rachas diarias, logros y desafíos que hacen el aprendizaje más divertido.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📇</div>
-                <h3>Flashcards y Cheatsheets</h3>
-                <p>Memoriza sintaxis y conceptos clave con flashcards interactivas.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📴</div>
-                <h3>Funciona Offline</h3>
-                <p>Estudia en cualquier lugar sin necesidad de conexión a internet.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3>Sistema de Logros</h3>
-                <p>Desbloquea logros y mantén tu motivación al máximo.</p>
+    <!-- Screenshots Spanish -->
+    <section lang="es">
+        <div class="container">
+            <h2>Capturas de Pantalla</h2>
+            <div class="screenshots">
+                <div class="screenshot">
+                    <img src="./screenshoots/index.jpeg" alt="Inicio">
+                    <div class="screenshot-label">Inicio</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/lessons.jpeg" alt="Lecciones">
+                    <div class="screenshot-label">Lecciones</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/flashcards.jpeg" alt="Flashcards">
+                    <div class="screenshot-label">Flashcards</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/quiz.jpeg" alt="Quiz">
+                    <div class="screenshot-label">Quiz</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/games.jpeg" alt="Juegos">
+                    <div class="screenshot-label">Juegos</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/archivements.jpeg" alt="Logros">
+                    <div class="screenshot-label">Logros</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section - English -->
-    <section class="section" id="features" lang="en">
-        <h2 class="section-title">Featured Highlights</h2>
-        <p class="section-subtitle">Everything you need to become a Python expert</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3>Interactive Lessons</h3>
-                <p>Learn Python from scratch with step-by-step tutorials designed for mobile.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Level-Based Quizzes</h3>
-                <p>Test your knowledge with quizzes adapted to your experience level.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🎮</div>
-                <h3>Gamification</h3>
-                <p>Daily streaks, achievements and challenges that make learning more fun.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📇</div>
-                <h3>Flashcards & Cheatsheets</h3>
-                <p>Memorize syntax and key concepts with interactive flashcards.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📴</div>
-                <h3>Works Offline</h3>
-                <p>Study anywhere without needing an internet connection.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3>Achievement System</h3>
-                <p>Unlock achievements and keep your motivation at its peak.</p>
+    <!-- Screenshots English -->
+    <section lang="en">
+        <div class="container">
+            <h2>Screenshots</h2>
+            <div class="screenshots">
+                <div class="screenshot">
+                    <img src="./screenshoots/index.jpeg" alt="Home">
+                    <div class="screenshot-label">Home</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/lessons.jpeg" alt="Lessons">
+                    <div class="screenshot-label">Lessons</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/flashcards.jpeg" alt="Flashcards">
+                    <div class="screenshot-label">Flashcards</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/quiz.jpeg" alt="Quiz">
+                    <div class="screenshot-label">Quiz</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/games.jpeg" alt="Games">
+                    <div class="screenshot-label">Games</div>
+                </div>
+                <div class="screenshot">
+                    <img src="./screenshoots/archivements.jpeg" alt="Achievements">
+                    <div class="screenshot-label">Achievements</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots Section - Spanish -->
-    <section class="section" lang="es">
-        <h2 class="section-title">Captura de Pantalla</h2>
-        <p class="section-subtitle">Explora la interfaz de PyLearn</p>
-        
-        <div class="screenshots-grid">
-            <div class="screenshot-card">
-                <img src="./screenshoots/index.jpeg" alt="Pantalla Principal">
-                <div class="screenshot-label">Pantalla Principal</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/lessons.jpeg" alt="Lecciones">
-                <div class="screenshot-label">Lecciones Interactivas</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/flashcards.jpeg" alt="Flashcards">
-                <div class="screenshot-label">Flashcards</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/quiz.jpeg" alt="Quiz">
-                <div class="screenshot-label">Quiz</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/games.jpeg" alt="Juegos">
-                <div class="screenshot-label">Juegos y Quizzes</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/archivements.jpeg" alt="Logros">
-                <div class="screenshot-label">Logros y Progreso</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Screenshots Section - English -->
-    <section class="section" lang="en">
-        <h2 class="section-title">Screenshots</h2>
-        <p class="section-subtitle">Explore PyLearn's interface</p>
-        
-        <div class="screenshots-grid">
-            <div class="screenshot-card">
-                <img src="./screenshoots/index.jpeg" alt="Main Screen">
-                <div class="screenshot-label">Main Screen</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/lessons.jpeg" alt="Lessons">
-                <div class="screenshot-label">Interactive Lessons</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/flashcards.jpeg" alt="Flashcards">
-                <div class="screenshot-label">Flashcards</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/quiz.jpeg" alt="Quiz">
-                <div class="screenshot-label">Quiz</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/games.jpeg" alt="Games">
-                <div class="screenshot-label">Games & Quizzes</div>
-            </div>
-            
-            <div class="screenshot-card">
-                <img src="./screenshoots/archivements.jpeg" alt="Achievements">
-                <div class="screenshot-label">Achievements & Progress</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section - Spanish -->
+    <!-- CTA Spanish -->
     <section class="cta-section" lang="es">
-        <h2>¿Listo para empezar tu viaje en Python?</h2>
-        <p>Descarga PyLearn ahora y comienza a aprender de forma gratuita</p>
-        <a href="https://github.com/yourusername/PyLearn/releases" class="btn btn-secondary" style="background: white; color: var(--primary);">
-            🚀 Descargar Ahora
-        </a>
+        <h2>¿Listo para empezar?</h2>
+        <p>Descarga PyLearn y comienza tu viaje en Python</p>
+        <a href="https://github.com/yourusername/PyLearn/releases" class="btn">🚀 Descargar Ahora</a>
     </section>
 
-    <!-- CTA Section - English -->
+    <!-- CTA English -->
     <section class="cta-section" lang="en">
-        <h2>Ready to start your Python journey?</h2>
-        <p>Download PyLearn now and start learning for free</p>
-        <a href="https://github.com/yourusername/PyLearn/releases" class="btn btn-secondary" style="background: white; color: var(--primary);">
-            🚀 Download Now
-        </a>
+        <h2>Ready to start?</h2>
+        <p>Download PyLearn and begin your Python journey</p>
+        <a href="https://github.com/yourusername/PyLearn/releases" class="btn">🚀 Download Now</a>
     </section>
 
-    <!-- Footer - Spanish -->
+    <!-- Footer Spanish -->
     <footer lang="es">
         <div class="footer-links">
-            <a href="./PRIVACY.md">Política de Privacidad</a>
-            <a href="./TERMS_SERVICE.md">Términos de Servicio</a>
+            <a href="./PRIVACY.md">Privacidad</a>
+            <a href="./TERMS_SERVICE.md">Términos</a>
             <a href="https://github.com/yourusername/PyLearn">GitHub</a>
             <a href="mailto:lacriptadelhacker@gmail.com">Contacto</a>
         </div>
-        <p class="footer-text">© 2025 PyLearn — Aprende Python de forma divertida e interactiva</p>
-        <p class="footer-text" style="margin-top: 0.5rem; opacity: 0.7;">Hecho con ❤️ para la comunidad de desarrolladores</p>
+        <p class="footer-text">© 2025 PyLearn — Hecho con ❤️ para la comunidad</p>
     </footer>
 
-    <!-- Footer - English -->
+    <!-- Footer English -->
     <footer lang="en">
         <div class="footer-links">
-            <a href="./PRIVACY.md">Privacy Policy</a>
-            <a href="./TERMS_SERVICE.md">Terms of Service</a>
+            <a href="./PRIVACY.md">Privacy</a>
+            <a href="./TERMS_SERVICE.md">Terms</a>
             <a href="https://github.com/yourusername/PyLearn">GitHub</a>
             <a href="mailto:lacriptadelhacker@gmail.com">Contact</a>
         </div>
-        <p class="footer-text">© 2025 PyLearn — Learn Python in a fun and interactive way</p>
-        <p class="footer-text" style="margin-top: 0.5rem; opacity: 0.7;">Made with ❤️ for the developer community</p>
+        <p class="footer-text">© 2025 PyLearn — Made with ❤️ for the community</p>
     </footer>
 
     <script>
-        // Language Toggle
         const langButtons = document.querySelectorAll('.lang-btn');
-        const htmlElement = document.documentElement;
-        
-        // Get saved language or default to Spanish
-        let currentLang = localStorage.getItem('preferredLang') || 'es';
-        setLanguage(currentLang);
-
-        langButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const lang = btn.dataset.lang;
-                setLanguage(lang);
-                localStorage.setItem('preferredLang', lang);
-            });
-        });
+        let currentLang = localStorage.getItem('lang') || 'es';
 
         function setLanguage(lang) {
             currentLang = lang;
-            htmlElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('lang', lang);
             
-            // Update button states
             langButtons.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
             
-            // Show/hide content
             document.querySelectorAll('[lang]').forEach(el => {
                 if (el.tagName === 'HTML') return;
                 el.classList.toggle('active-lang', el.getAttribute('lang') === lang);
             });
+            
+            localStorage.setItem('lang', lang);
         }
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        setLanguage(currentLang);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        });
-
-        // Add scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe feature cards and screenshot cards
-        document.querySelectorAll('.feature-card, .screenshot-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
         });
     </script>
 </body>
