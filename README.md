@@ -6,8 +6,7 @@
 
 ### **Aprende Python desde tu móvil** | **Learn Python on the go**
 
-[![GitHub release](https://img.shields.io/badge/release-v1.0-blue.svg)](https://github.com/yourusername/PyLearn/releases)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![GitHub release](https://img.shields.io/badge/release-v1.0-blue.svg)](https://github.com/OxNihil/PyLearn/releases)
 [![Platform](https://img.shields.io/badge/platform-Android-brightgreen.svg)](https://www.android.com/)
 
 [🇪🇸 Español](#español) | [🇬🇧 English](#english)
@@ -51,7 +50,7 @@
 
 #### Descargar la App
 
-1. Ve a la [página de releases](https://github.com/yourusername/PyLearn/releases)
+1. Ve a la [página de releases](https://github.com/OxNihil/PyLearn/releases)
 2. Descarga el archivo APK más reciente
 3. Instala en tu dispositivo Android
 4. ¡Comienza a aprender!
@@ -92,26 +91,8 @@ PyLearn respeta tu privacidad:
 ¿Tienes preguntas, sugerencias o encontraste un bug?
 
 - 📧 Email: [lacriptadelhacker@gmail.com](mailto:lacriptadelhacker@gmail.com)
-- 🐛 [Reportar un problema](https://github.com/yourusername/PyLearn/issues)
-- 💡 [Sugerir una característica](https://github.com/yourusername/PyLearn/issues/new)
-
-### 🤝 Contribuir
-
-¡Las contribuciones son bienvenidas! Si quieres mejorar PyLearn:
-
-1. Haz fork del repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-### 📜 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
-### 🙏 Agradecimientos
-
-Gracias a todos los que han contribuido a hacer de PyLearn una mejor herramienta de aprendizaje.
+- 🐛 [Reportar un problema](https://github.com/OxNihil/PyLearn/issues)
+- 💡 [Sugerir una característica](https://github.com/OxNihil/PyLearn/issues/new)
 
 ---
 
@@ -150,7 +131,7 @@ Gracias a todos los que han contribuido a hacer de PyLearn una mejor herramienta
 
 #### Download the App
 
-1. Go to the [releases page](https://github.com/yourusername/PyLearn/releases)
+1. Go to the [releases page](https://github.com/OxNihil/PyLearn/releases)
 2. Download the latest APK file
 3. Install on your Android device
 4. Start learning!
@@ -191,26 +172,8 @@ PyLearn respects your privacy:
 Have questions, suggestions, or found a bug?
 
 - 📧 Email: [lacriptadelhacker@gmail.com](mailto:lacriptadelhacker@gmail.com)
-- 🐛 [Report an issue](https://github.com/yourusername/PyLearn/issues)
-- 💡 [Suggest a feature](https://github.com/yourusername/PyLearn/issues/new)
-
-### 🤝 Contributing
-
-Contributions are welcome! If you want to improve PyLearn:
-
-1. Fork the repository
-2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 📜 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-### 🙏 Acknowledgments
-
-Thanks to everyone who has contributed to making PyLearn a better learning tool.
+- 🐛 [Report an issue](https://github.com/OxNihil/PyLearn/issues)
+- 💡 [Suggest a feature](https://github.com/OxNihil/PyLearn/issues/new)
 
 ---
 
